@@ -1,0 +1,1683 @@
+Subject: [PATCH] c
+c
+---
+Index: client/package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/package-lock.json b/client/package-lock.json
+--- a/client/package-lock.json	(revision fd80a4d8de4bfb7f91d4999459d3c7064da9955e)
++++ b/client/package-lock.json	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -8,12 +8,23 @@
+       "name": "client",
+       "version": "0.1.0",
+       "dependencies": {
++        "@emotion/react": "^11.11.1",
++        "@emotion/styled": "^11.11.0",
++        "@fontsource/roboto": "^5.0.8",
++        "@mui/material": "^5.14.14",
++        "@react-buddy/ide-toolbox": "^2.4.0",
++        "@react-buddy/palette-mui": "^5.0.1",
++        "@redux-devtools/extension": "^3.2.5",
+         "@testing-library/jest-dom": "^5.17.0",
+         "@testing-library/react": "^13.4.0",
+         "@testing-library/user-event": "^13.5.0",
++        "axios": "^1.5.1",
+         "react": "^18.2.0",
+         "react-dom": "^18.2.0",
++        "react-redux": "^8.1.3",
+         "react-scripts": "5.0.1",
++        "redux": "^4.2.1",
++        "redux-thunk": "^2.4.2",
+         "web-vitals": "^2.1.4"
+       }
+     },
+@@ -1939,9 +1950,9 @@
+       "integrity": "sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA=="
+     },
+     "node_modules/@babel/runtime": {
+-      "version": "7.23.1",
+-      "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.23.1.tgz",
+-      "integrity": "sha512-hC2v6p8ZSI/W0HUzh3V8C5g+NwSKzKPtJwSpTjwl0o297GP9+ZLQSkdvHz46CM3LqyoXxq+5G9komY+eSqSO0g==",
++      "version": "7.23.2",
++      "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.23.2.tgz",
++      "integrity": "sha512-mM8eg4yl5D6i3lu2QKPuPH4FArvJ8KhTofbE7jwMUv9KX5mBvwPAqnV3MlyBNqdp9RyRKP6Yck8TrfYrPvX3bg==",
+       "dependencies": {
+         "regenerator-runtime": "^0.14.0"
+       },
+@@ -2270,6 +2281,163 @@
+         "postcss-selector-parser": "^6.0.10"
+       }
+     },
++    "node_modules/@emotion/babel-plugin": {
++      "version": "11.11.0",
++      "resolved": "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.11.0.tgz",
++      "integrity": "sha512-m4HEDZleaaCH+XgDDsPF15Ht6wTLsgDTeR3WYj9Q/k76JtWhrJjcP4+/XlG8LGT/Rol9qUfOIztXeA84ATpqPQ==",
++      "dependencies": {
++        "@babel/helper-module-imports": "^7.16.7",
++        "@babel/runtime": "^7.18.3",
++        "@emotion/hash": "^0.9.1",
++        "@emotion/memoize": "^0.8.1",
++        "@emotion/serialize": "^1.1.2",
++        "babel-plugin-macros": "^3.1.0",
++        "convert-source-map": "^1.5.0",
++        "escape-string-regexp": "^4.0.0",
++        "find-root": "^1.1.0",
++        "source-map": "^0.5.7",
++        "stylis": "4.2.0"
++      }
++    },
++    "node_modules/@emotion/babel-plugin/node_modules/convert-source-map": {
++      "version": "1.9.0",
++      "resolved": "https://registry.npmjs.org/convert-source-map/-/convert-source-map-1.9.0.tgz",
++      "integrity": "sha512-ASFBup0Mz1uyiIjANan1jzLQami9z1PoYSZCiiYW2FczPbenXc45FZdBZLzOT+r6+iciuEModtmCti+hjaAk0A=="
++    },
++    "node_modules/@emotion/babel-plugin/node_modules/escape-string-regexp": {
++      "version": "4.0.0",
++      "resolved": "https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-4.0.0.tgz",
++      "integrity": "sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==",
++      "engines": {
++        "node": ">=10"
++      },
++      "funding": {
++        "url": "https://github.com/sponsors/sindresorhus"
++      }
++    },
++    "node_modules/@emotion/babel-plugin/node_modules/source-map": {
++      "version": "0.5.7",
++      "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.7.tgz",
++      "integrity": "sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==",
++      "engines": {
++        "node": ">=0.10.0"
++      }
++    },
++    "node_modules/@emotion/cache": {
++      "version": "11.11.0",
++      "resolved": "https://registry.npmjs.org/@emotion/cache/-/cache-11.11.0.tgz",
++      "integrity": "sha512-P34z9ssTCBi3e9EI1ZsWpNHcfY1r09ZO0rZbRO2ob3ZQMnFI35jB536qoXbkdesr5EUhYi22anuEJuyxifaqAQ==",
++      "dependencies": {
++        "@emotion/memoize": "^0.8.1",
++        "@emotion/sheet": "^1.2.2",
++        "@emotion/utils": "^1.2.1",
++        "@emotion/weak-memoize": "^0.3.1",
++        "stylis": "4.2.0"
++      }
++    },
++    "node_modules/@emotion/hash": {
++      "version": "0.9.1",
++      "resolved": "https://registry.npmjs.org/@emotion/hash/-/hash-0.9.1.tgz",
++      "integrity": "sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ=="
++    },
++    "node_modules/@emotion/is-prop-valid": {
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-1.2.1.tgz",
++      "integrity": "sha512-61Mf7Ufx4aDxx1xlDeOm8aFFigGHE4z+0sKCa+IHCeZKiyP9RLD0Mmx7m8b9/Cf37f7NAvQOOJAbQQGVr5uERw==",
++      "dependencies": {
++        "@emotion/memoize": "^0.8.1"
++      }
++    },
++    "node_modules/@emotion/memoize": {
++      "version": "0.8.1",
++      "resolved": "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.8.1.tgz",
++      "integrity": "sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA=="
++    },
++    "node_modules/@emotion/react": {
++      "version": "11.11.1",
++      "resolved": "https://registry.npmjs.org/@emotion/react/-/react-11.11.1.tgz",
++      "integrity": "sha512-5mlW1DquU5HaxjLkfkGN1GA/fvVGdyHURRiX/0FHl2cfIfRxSOfmxEH5YS43edp0OldZrZ+dkBKbngxcNCdZvA==",
++      "dependencies": {
++        "@babel/runtime": "^7.18.3",
++        "@emotion/babel-plugin": "^11.11.0",
++        "@emotion/cache": "^11.11.0",
++        "@emotion/serialize": "^1.1.2",
++        "@emotion/use-insertion-effect-with-fallbacks": "^1.0.1",
++        "@emotion/utils": "^1.2.1",
++        "@emotion/weak-memoize": "^0.3.1",
++        "hoist-non-react-statics": "^3.3.1"
++      },
++      "peerDependencies": {
++        "react": ">=16.8.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@emotion/serialize": {
++      "version": "1.1.2",
++      "resolved": "https://registry.npmjs.org/@emotion/serialize/-/serialize-1.1.2.tgz",
++      "integrity": "sha512-zR6a/fkFP4EAcCMQtLOhIgpprZOwNmCldtpaISpvz348+DP4Mz8ZoKaGGCQpbzepNIUWbq4w6hNZkwDyKoS+HA==",
++      "dependencies": {
++        "@emotion/hash": "^0.9.1",
++        "@emotion/memoize": "^0.8.1",
++        "@emotion/unitless": "^0.8.1",
++        "@emotion/utils": "^1.2.1",
++        "csstype": "^3.0.2"
++      }
++    },
++    "node_modules/@emotion/sheet": {
++      "version": "1.2.2",
++      "resolved": "https://registry.npmjs.org/@emotion/sheet/-/sheet-1.2.2.tgz",
++      "integrity": "sha512-0QBtGvaqtWi+nx6doRwDdBIzhNdZrXUppvTM4dtZZWEGTXL/XE/yJxLMGlDT1Gt+UHH5IX1n+jkXyytE/av7OA=="
++    },
++    "node_modules/@emotion/styled": {
++      "version": "11.11.0",
++      "resolved": "https://registry.npmjs.org/@emotion/styled/-/styled-11.11.0.tgz",
++      "integrity": "sha512-hM5Nnvu9P3midq5aaXj4I+lnSfNi7Pmd4EWk1fOZ3pxookaQTNew6bp4JaCBYM4HVFZF9g7UjJmsUmC2JlxOng==",
++      "dependencies": {
++        "@babel/runtime": "^7.18.3",
++        "@emotion/babel-plugin": "^11.11.0",
++        "@emotion/is-prop-valid": "^1.2.1",
++        "@emotion/serialize": "^1.1.2",
++        "@emotion/use-insertion-effect-with-fallbacks": "^1.0.1",
++        "@emotion/utils": "^1.2.1"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.0.0-rc.0",
++        "react": ">=16.8.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@emotion/unitless": {
++      "version": "0.8.1",
++      "resolved": "https://registry.npmjs.org/@emotion/unitless/-/unitless-0.8.1.tgz",
++      "integrity": "sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ=="
++    },
++    "node_modules/@emotion/use-insertion-effect-with-fallbacks": {
++      "version": "1.0.1",
++      "resolved": "https://registry.npmjs.org/@emotion/use-insertion-effect-with-fallbacks/-/use-insertion-effect-with-fallbacks-1.0.1.tgz",
++      "integrity": "sha512-jT/qyKZ9rzLErtrjGgdkMBn2OP8wl0G3sQlBb3YPryvKHsjvINUhVaPFfP+fpBcOkmrVOVEEHQFJ7nbj2TH2gw==",
++      "peerDependencies": {
++        "react": ">=16.8.0"
++      }
++    },
++    "node_modules/@emotion/utils": {
++      "version": "1.2.1",
++      "resolved": "https://registry.npmjs.org/@emotion/utils/-/utils-1.2.1.tgz",
++      "integrity": "sha512-Y2tGf3I+XVnajdItskUCn6LX+VUDmP6lTL4fcqsXAv43dnlbZiuW4MWQW38rW/BVWSE7Q/7+XQocmpnRYILUmg=="
++    },
++    "node_modules/@emotion/weak-memoize": {
++      "version": "0.3.1",
++      "resolved": "https://registry.npmjs.org/@emotion/weak-memoize/-/weak-memoize-0.3.1.tgz",
++      "integrity": "sha512-EsBwpc7hBUJWAsNPBmJy4hxWx12v6bshQsldrVmjxJoc3isbxhOrF2IcCpaXxfvq03NwkI7sbsOLXbYuqF/8Ww=="
++    },
+     "node_modules/@eslint-community/eslint-utils": {
+       "version": "4.4.0",
+       "resolved": "https://registry.npmjs.org/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz",
+@@ -2363,6 +2531,45 @@
+         "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
+       }
+     },
++    "node_modules/@floating-ui/core": {
++      "version": "1.5.0",
++      "resolved": "https://registry.npmjs.org/@floating-ui/core/-/core-1.5.0.tgz",
++      "integrity": "sha512-kK1h4m36DQ0UHGj5Ah4db7R0rHemTqqO0QLvUqi1/mUUp3LuAWbWxdxSIf/XsnH9VS6rRVPLJCncjRzUvyCLXg==",
++      "dependencies": {
++        "@floating-ui/utils": "^0.1.3"
++      }
++    },
++    "node_modules/@floating-ui/dom": {
++      "version": "1.5.3",
++      "resolved": "https://registry.npmjs.org/@floating-ui/dom/-/dom-1.5.3.tgz",
++      "integrity": "sha512-ClAbQnEqJAKCJOEbbLo5IUlZHkNszqhuxS4fHAVxRPXPya6Ysf2G8KypnYcOTpx6I8xcgF9bbHb6g/2KpbV8qA==",
++      "dependencies": {
++        "@floating-ui/core": "^1.4.2",
++        "@floating-ui/utils": "^0.1.3"
++      }
++    },
++    "node_modules/@floating-ui/react-dom": {
++      "version": "2.0.2",
++      "resolved": "https://registry.npmjs.org/@floating-ui/react-dom/-/react-dom-2.0.2.tgz",
++      "integrity": "sha512-5qhlDvjaLmAst/rKb3VdlCinwTF4EYMiVxuuc/HVUjs46W0zgtbMmAZ1UTsDrRTxRmUEzl92mOtWbeeXL26lSQ==",
++      "dependencies": {
++        "@floating-ui/dom": "^1.5.1"
++      },
++      "peerDependencies": {
++        "react": ">=16.8.0",
++        "react-dom": ">=16.8.0"
++      }
++    },
++    "node_modules/@floating-ui/utils": {
++      "version": "0.1.6",
++      "resolved": "https://registry.npmjs.org/@floating-ui/utils/-/utils-0.1.6.tgz",
++      "integrity": "sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A=="
++    },
++    "node_modules/@fontsource/roboto": {
++      "version": "5.0.8",
++      "resolved": "https://registry.npmjs.org/@fontsource/roboto/-/roboto-5.0.8.tgz",
++      "integrity": "sha512-XxPltXs5R31D6UZeLIV1td3wTXU3jzd3f2DLsXI8tytMGBkIsGcc9sIyiupRtA8y73HAhuSCeweOoBqf6DbWCA=="
++    },
+     "node_modules/@humanwhocodes/config-array": {
+       "version": "0.11.11",
+       "resolved": "https://registry.npmjs.org/@humanwhocodes/config-array/-/config-array-0.11.11.tgz",
+@@ -3137,6 +3344,262 @@
+       "resolved": "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz",
+       "integrity": "sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A=="
+     },
++    "node_modules/@mui/base": {
++      "version": "5.0.0-beta.20",
++      "resolved": "https://registry.npmjs.org/@mui/base/-/base-5.0.0-beta.20.tgz",
++      "integrity": "sha512-CS2pUuqxST7ch9VNDCklRYDbJ3rru20Tx7na92QvVVKfu3RL4z/QLuVIc8jYGsdCnauMaeUSlFNLAJNb0yXe6w==",
++      "dependencies": {
++        "@babel/runtime": "^7.23.1",
++        "@floating-ui/react-dom": "^2.0.2",
++        "@mui/types": "^7.2.6",
++        "@mui/utils": "^5.14.13",
++        "@popperjs/core": "^2.11.8",
++        "clsx": "^2.0.0",
++        "prop-types": "^15.8.1"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      },
++      "peerDependencies": {
++        "@types/react": "^17.0.0 || ^18.0.0",
++        "react": "^17.0.0 || ^18.0.0",
++        "react-dom": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/core-downloads-tracker": {
++      "version": "5.14.14",
++      "resolved": "https://registry.npmjs.org/@mui/core-downloads-tracker/-/core-downloads-tracker-5.14.14.tgz",
++      "integrity": "sha512-Rw/xKiTOUgXD8hdKqj60aC6QcGprMipG7ne2giK6Mz7b4PlhL/xog9xLeclY3BxsRLkZQ05egFnIEY1CSibTbw==",
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      }
++    },
++    "node_modules/@mui/icons-material": {
++      "version": "5.14.15",
++      "resolved": "https://registry.npmjs.org/@mui/icons-material/-/icons-material-5.14.15.tgz",
++      "integrity": "sha512-Dqu21vN/mVNzebJ+ofnKG+CeJYIhHuDs5+0fMEpdpzRt6UojelzdrEkNv+XkO0e1JMclzeXIRx404FirK/CFRw==",
++      "peer": true,
++      "dependencies": {
++        "@babel/runtime": "^7.23.2"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      },
++      "peerDependencies": {
++        "@mui/material": "^5.0.0",
++        "@types/react": "^17.0.0 || ^18.0.0",
++        "react": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/material": {
++      "version": "5.14.14",
++      "resolved": "https://registry.npmjs.org/@mui/material/-/material-5.14.14.tgz",
++      "integrity": "sha512-cAmCwAHFQXxb44kWbVFkhKATN8tACgMsFwrXo8ro6WzYW73U/qsR5AcCiJIhCyYYg+gcftfkmNcpRaV3JjhHCg==",
++      "dependencies": {
++        "@babel/runtime": "^7.23.1",
++        "@mui/base": "5.0.0-beta.20",
++        "@mui/core-downloads-tracker": "^5.14.14",
++        "@mui/system": "^5.14.14",
++        "@mui/types": "^7.2.6",
++        "@mui/utils": "^5.14.13",
++        "@types/react-transition-group": "^4.4.7",
++        "clsx": "^2.0.0",
++        "csstype": "^3.1.2",
++        "prop-types": "^15.8.1",
++        "react-is": "^18.2.0",
++        "react-transition-group": "^4.4.5"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.5.0",
++        "@emotion/styled": "^11.3.0",
++        "@types/react": "^17.0.0 || ^18.0.0",
++        "react": "^17.0.0 || ^18.0.0",
++        "react-dom": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@emotion/react": {
++          "optional": true
++        },
++        "@emotion/styled": {
++          "optional": true
++        },
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/material/node_modules/react-is": {
++      "version": "18.2.0",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz",
++      "integrity": "sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w=="
++    },
++    "node_modules/@mui/private-theming": {
++      "version": "5.14.14",
++      "resolved": "https://registry.npmjs.org/@mui/private-theming/-/private-theming-5.14.14.tgz",
++      "integrity": "sha512-n77au3CQj9uu16hak2Y+rvbGSBaJKxziG/gEbOLVGrAuqZ+ycVSkorCfN6Y/4XgYOpG/xvmuiY3JwhAEOzY3iA==",
++      "dependencies": {
++        "@babel/runtime": "^7.23.1",
++        "@mui/utils": "^5.14.13",
++        "prop-types": "^15.8.1"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      },
++      "peerDependencies": {
++        "@types/react": "^17.0.0 || ^18.0.0",
++        "react": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/styled-engine": {
++      "version": "5.14.14",
++      "resolved": "https://registry.npmjs.org/@mui/styled-engine/-/styled-engine-5.14.14.tgz",
++      "integrity": "sha512-sF3DS2PVG+cFWvkVHQQaGFpL1h6gSwOW3L91pdxPLQDHDZ5mZ/X0SlXU5XA+WjypoysG4urdAQC7CH/BRvUiqg==",
++      "dependencies": {
++        "@babel/runtime": "^7.23.1",
++        "@emotion/cache": "^11.11.0",
++        "csstype": "^3.1.2",
++        "prop-types": "^15.8.1"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.4.1",
++        "@emotion/styled": "^11.3.0",
++        "react": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@emotion/react": {
++          "optional": true
++        },
++        "@emotion/styled": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/system": {
++      "version": "5.14.14",
++      "resolved": "https://registry.npmjs.org/@mui/system/-/system-5.14.14.tgz",
++      "integrity": "sha512-y4InFmCgGGWXnz+iK4jRTWVikY0HgYnABjz4wgiUgEa2W1H8M4ow+27BegExUWPkj4TWthQ2qG9FOGSMtI+PKA==",
++      "dependencies": {
++        "@babel/runtime": "^7.23.1",
++        "@mui/private-theming": "^5.14.14",
++        "@mui/styled-engine": "^5.14.13",
++        "@mui/types": "^7.2.6",
++        "@mui/utils": "^5.14.13",
++        "clsx": "^2.0.0",
++        "csstype": "^3.1.2",
++        "prop-types": "^15.8.1"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      },
++      "peerDependencies": {
++        "@emotion/react": "^11.5.0",
++        "@emotion/styled": "^11.3.0",
++        "@types/react": "^17.0.0 || ^18.0.0",
++        "react": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@emotion/react": {
++          "optional": true
++        },
++        "@emotion/styled": {
++          "optional": true
++        },
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/types": {
++      "version": "7.2.6",
++      "resolved": "https://registry.npmjs.org/@mui/types/-/types-7.2.6.tgz",
++      "integrity": "sha512-7sjLQrUmBwufm/M7jw/quNiPK/oor2+pGUQP2CULRcFCArYTq78oJ3D5esTaL0UMkXKJvDqXn6Ike69yAOBQng==",
++      "peerDependencies": {
++        "@types/react": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/utils": {
++      "version": "5.14.14",
++      "resolved": "https://registry.npmjs.org/@mui/utils/-/utils-5.14.14.tgz",
++      "integrity": "sha512-3AKp8uksje5sRfVrtgG9Q/2TBsHWVBUtA0NaXliZqGcXo8J+A+Agp0qUW2rJ+ivgPWTCCubz9FZVT2IQZ3bGsw==",
++      "dependencies": {
++        "@babel/runtime": "^7.23.1",
++        "@types/prop-types": "^15.7.7",
++        "prop-types": "^15.8.1",
++        "react-is": "^18.2.0"
++      },
++      "engines": {
++        "node": ">=12.0.0"
++      },
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/mui"
++      },
++      "peerDependencies": {
++        "@types/react": "^17.0.0 || ^18.0.0",
++        "react": "^17.0.0 || ^18.0.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/@mui/utils/node_modules/react-is": {
++      "version": "18.2.0",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz",
++      "integrity": "sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w=="
++    },
+     "node_modules/@nicolo-ribaudo/eslint-scope-5-internals": {
+       "version": "5.1.1-v1",
+       "resolved": "https://registry.npmjs.org/@nicolo-ribaudo/eslint-scope-5-internals/-/eslint-scope-5-internals-5.1.1-v1.tgz",
+@@ -3246,6 +3709,48 @@
+         }
+       }
+     },
++    "node_modules/@popperjs/core": {
++      "version": "2.11.8",
++      "resolved": "https://registry.npmjs.org/@popperjs/core/-/core-2.11.8.tgz",
++      "integrity": "sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==",
++      "funding": {
++        "type": "opencollective",
++        "url": "https://opencollective.com/popperjs"
++      }
++    },
++    "node_modules/@react-buddy/ide-toolbox": {
++      "version": "2.4.0",
++      "resolved": "https://registry.npmjs.org/@react-buddy/ide-toolbox/-/ide-toolbox-2.4.0.tgz",
++      "integrity": "sha512-TWHX6gwa0Gop7215uHhjFMbYLLdjM/b9rr0wYE3E0m7GNJ56gbPpbZiq86w9uI8zksl827acqGeT437MkuO64w==",
++      "peerDependencies": {
++        "react": "^17.0.0 || ^18.0.0"
++      }
++    },
++    "node_modules/@react-buddy/palette-mui": {
++      "version": "5.0.2",
++      "resolved": "https://registry.npmjs.org/@react-buddy/palette-mui/-/palette-mui-5.0.2.tgz",
++      "integrity": "sha512-X9gdm+fwmvZTiOMWtCtljyJtSEYNH2F6qHtmht7liQUkNW8e61icu2vfLWYtwz9XG1QxFuPbev5RCsh/+Ewldw==",
++      "dependencies": {
++        "@react-buddy/ide-toolbox": "^2.4.0"
++      },
++      "peerDependencies": {
++        "@mui/icons-material": "^5.0.1",
++        "@mui/material": "^5.0.1",
++        "react": "^17.0.0 || ^18.0.0"
++      }
++    },
++    "node_modules/@redux-devtools/extension": {
++      "version": "3.2.5",
++      "resolved": "https://registry.npmjs.org/@redux-devtools/extension/-/extension-3.2.5.tgz",
++      "integrity": "sha512-UhyDF7WmdnCrN1s++YC4sdQCo0z6YUnoB2eCh15nXDDq3QH1jDju1144UNRU6Nvi4inxhaIum4m9BXVYWVC1ng==",
++      "dependencies": {
++        "@babel/runtime": "^7.20.7",
++        "immutable": "^4.2.2"
++      },
++      "peerDependencies": {
++        "redux": "^3.1.0 || ^4.0.0"
++      }
++    },
+     "node_modules/@rollup/plugin-babel": {
+       "version": "5.3.1",
+       "resolved": "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz",
+@@ -4011,6 +4516,15 @@
+         "@types/node": "*"
+       }
+     },
++    "node_modules/@types/hoist-non-react-statics": {
++      "version": "3.3.4",
++      "resolved": "https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.4.tgz",
++      "integrity": "sha512-ZchYkbieA+7tnxwX/SCBySx9WwvWR8TaP5tb2jRAzwvLb/rWchGw3v0w3pqUbUvj0GCwW2Xz/AVPSk6kUGctXQ==",
++      "dependencies": {
++        "@types/react": "*",
++        "hoist-non-react-statics": "^3.3.0"
++      }
++    },
+     "node_modules/@types/html-minifier-terser": {
+       "version": "6.1.0",
+       "resolved": "https://registry.npmjs.org/@types/html-minifier-terser/-/html-minifier-terser-6.1.0.tgz",
+@@ -4354,6 +4868,14 @@
+         "@types/react": "*"
+       }
+     },
++    "node_modules/@types/react-transition-group": {
++      "version": "4.4.8",
++      "resolved": "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.8.tgz",
++      "integrity": "sha512-QmQ22q+Pb+HQSn04NL3HtrqHwYMf4h3QKArOy5F8U5nEVMaihBs3SR10WiOM1iwPz5jIo8x/u11al+iEGZZrvg==",
++      "dependencies": {
++        "@types/react": "*"
++      }
++    },
+     "node_modules/@types/resolve": {
+       "version": "1.17.1",
+       "resolved": "https://registry.npmjs.org/@types/resolve/-/resolve-1.17.1.tgz",
+@@ -4430,6 +4952,11 @@
+       "resolved": "https://registry.npmjs.org/@types/trusted-types/-/trusted-types-2.0.4.tgz",
+       "integrity": "sha512-IDaobHimLQhjwsQ/NMwRVfa/yL7L/wriQPMhw1ZJall0KX6E1oxk29XMDeilW5qTIg5aoiqf5Udy8U/51aNoQQ=="
+     },
++    "node_modules/@types/use-sync-external-store": {
++      "version": "0.0.3",
++      "resolved": "https://registry.npmjs.org/@types/use-sync-external-store/-/use-sync-external-store-0.0.3.tgz",
++      "integrity": "sha512-EwmlvuaxPNej9+T4v5AuBPJa2x2UOJVdjCtDHgcDqitUeOtjnJKJ+apYjVcAoBEMjKW1VVFGZLUb5+qqa09XFA=="
++    },
+     "node_modules/@types/ws": {
+       "version": "8.5.6",
+       "resolved": "https://registry.npmjs.org/@types/ws/-/ws-8.5.6.tgz",
+@@ -5290,6 +5817,29 @@
+         "node": ">=4"
+       }
+     },
++    "node_modules/axios": {
++      "version": "1.5.1",
++      "resolved": "https://registry.npmjs.org/axios/-/axios-1.5.1.tgz",
++      "integrity": "sha512-Q28iYCWzNHjAm+yEAot5QaAMxhMghWLFVf7rRdwhUI+c2jix2DUXjAHXVi+s1ibs3mjPO/cCgbA++3BjD0vP/A==",
++      "dependencies": {
++        "follow-redirects": "^1.15.0",
++        "form-data": "^4.0.0",
++        "proxy-from-env": "^1.1.0"
++      }
++    },
++    "node_modules/axios/node_modules/form-data": {
++      "version": "4.0.0",
++      "resolved": "https://registry.npmjs.org/form-data/-/form-data-4.0.0.tgz",
++      "integrity": "sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==",
++      "dependencies": {
++        "asynckit": "^0.4.0",
++        "combined-stream": "^1.0.8",
++        "mime-types": "^2.1.12"
++      },
++      "engines": {
++        "node": ">= 6"
++      }
++    },
+     "node_modules/axobject-query": {
+       "version": "3.2.1",
+       "resolved": "https://registry.npmjs.org/axobject-query/-/axobject-query-3.2.1.tgz",
+@@ -5988,6 +6538,14 @@
+         "wrap-ansi": "^7.0.0"
+       }
+     },
++    "node_modules/clsx": {
++      "version": "2.0.0",
++      "resolved": "https://registry.npmjs.org/clsx/-/clsx-2.0.0.tgz",
++      "integrity": "sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==",
++      "engines": {
++        "node": ">=6"
++      }
++    },
+     "node_modules/co": {
+       "version": "4.6.0",
+       "resolved": "https://registry.npmjs.org/co/-/co-4.6.0.tgz",
+@@ -6921,6 +7479,15 @@
+         "utila": "~0.4"
+       }
+     },
++    "node_modules/dom-helpers": {
++      "version": "5.2.1",
++      "resolved": "https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz",
++      "integrity": "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==",
++      "dependencies": {
++        "@babel/runtime": "^7.8.7",
++        "csstype": "^3.0.2"
++      }
++    },
+     "node_modules/dom-serializer": {
+       "version": "1.4.1",
+       "resolved": "https://registry.npmjs.org/dom-serializer/-/dom-serializer-1.4.1.tgz",
+@@ -8279,6 +8846,11 @@
+         "url": "https://github.com/avajs/find-cache-dir?sponsor=1"
+       }
+     },
++    "node_modules/find-root": {
++      "version": "1.1.0",
++      "resolved": "https://registry.npmjs.org/find-root/-/find-root-1.1.0.tgz",
++      "integrity": "sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng=="
++    },
+     "node_modules/find-up": {
+       "version": "5.0.0",
+       "resolved": "https://registry.npmjs.org/find-up/-/find-up-5.0.0.tgz",
+@@ -8906,6 +9478,19 @@
+         "he": "bin/he"
+       }
+     },
++    "node_modules/hoist-non-react-statics": {
++      "version": "3.3.2",
++      "resolved": "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz",
++      "integrity": "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==",
++      "dependencies": {
++        "react-is": "^16.7.0"
++      }
++    },
++    "node_modules/hoist-non-react-statics/node_modules/react-is": {
++      "version": "16.13.1",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
++      "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
++    },
+     "node_modules/hoopy": {
+       "version": "0.1.4",
+       "resolved": "https://registry.npmjs.org/hoopy/-/hoopy-0.1.4.tgz",
+@@ -9197,6 +9782,11 @@
+         "url": "https://opencollective.com/immer"
+       }
+     },
++    "node_modules/immutable": {
++      "version": "4.3.4",
++      "resolved": "https://registry.npmjs.org/immutable/-/immutable-4.3.4.tgz",
++      "integrity": "sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA=="
++    },
+     "node_modules/import-fresh": {
+       "version": "3.3.0",
+       "resolved": "https://registry.npmjs.org/import-fresh/-/import-fresh-3.3.0.tgz",
+@@ -14392,6 +14982,11 @@
+         "node": ">= 0.10"
+       }
+     },
++    "node_modules/proxy-from-env": {
++      "version": "1.1.0",
++      "resolved": "https://registry.npmjs.org/proxy-from-env/-/proxy-from-env-1.1.0.tgz",
++      "integrity": "sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg=="
++    },
+     "node_modules/psl": {
+       "version": "1.9.0",
+       "resolved": "https://registry.npmjs.org/psl/-/psl-1.9.0.tgz",
+@@ -14680,6 +15275,49 @@
+       "resolved": "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz",
+       "integrity": "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
+     },
++    "node_modules/react-redux": {
++      "version": "8.1.3",
++      "resolved": "https://registry.npmjs.org/react-redux/-/react-redux-8.1.3.tgz",
++      "integrity": "sha512-n0ZrutD7DaX/j9VscF+uTALI3oUPa/pO4Z3soOBIjuRn/FzVu6aehhysxZCLi6y7duMf52WNZGMl7CtuK5EnRw==",
++      "dependencies": {
++        "@babel/runtime": "^7.12.1",
++        "@types/hoist-non-react-statics": "^3.3.1",
++        "@types/use-sync-external-store": "^0.0.3",
++        "hoist-non-react-statics": "^3.3.2",
++        "react-is": "^18.0.0",
++        "use-sync-external-store": "^1.0.0"
++      },
++      "peerDependencies": {
++        "@types/react": "^16.8 || ^17.0 || ^18.0",
++        "@types/react-dom": "^16.8 || ^17.0 || ^18.0",
++        "react": "^16.8 || ^17.0 || ^18.0",
++        "react-dom": "^16.8 || ^17.0 || ^18.0",
++        "react-native": ">=0.59",
++        "redux": "^4 || ^5.0.0-beta.0"
++      },
++      "peerDependenciesMeta": {
++        "@types/react": {
++          "optional": true
++        },
++        "@types/react-dom": {
++          "optional": true
++        },
++        "react-dom": {
++          "optional": true
++        },
++        "react-native": {
++          "optional": true
++        },
++        "redux": {
++          "optional": true
++        }
++      }
++    },
++    "node_modules/react-redux/node_modules/react-is": {
++      "version": "18.2.0",
++      "resolved": "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz",
++      "integrity": "sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w=="
++    },
+     "node_modules/react-refresh": {
+       "version": "0.11.0",
+       "resolved": "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz",
+@@ -14760,6 +15398,21 @@
+         }
+       }
+     },
++    "node_modules/react-transition-group": {
++      "version": "4.4.5",
++      "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.5.tgz",
++      "integrity": "sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==",
++      "dependencies": {
++        "@babel/runtime": "^7.5.5",
++        "dom-helpers": "^5.0.1",
++        "loose-envify": "^1.4.0",
++        "prop-types": "^15.6.2"
++      },
++      "peerDependencies": {
++        "react": ">=16.6.0",
++        "react-dom": ">=16.6.0"
++      }
++    },
+     "node_modules/read-cache": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/read-cache/-/read-cache-1.0.0.tgz",
+@@ -14815,6 +15468,22 @@
+         "node": ">=8"
+       }
+     },
++    "node_modules/redux": {
++      "version": "4.2.1",
++      "resolved": "https://registry.npmjs.org/redux/-/redux-4.2.1.tgz",
++      "integrity": "sha512-LAUYz4lc+Do8/g7aeRa8JkyDErK6ekstQaqWQrNRW//MY1TvCEpMtpTWvlQ+FPbWCx+Xixu/6SHt5N0HR+SB4w==",
++      "dependencies": {
++        "@babel/runtime": "^7.9.2"
++      }
++    },
++    "node_modules/redux-thunk": {
++      "version": "2.4.2",
++      "resolved": "https://registry.npmjs.org/redux-thunk/-/redux-thunk-2.4.2.tgz",
++      "integrity": "sha512-+P3TjtnP0k/FEjcBL5FZpoovtvrTNT/UXd4/sluaSyrURlSlhLSzEdfsTBW7WsKB6yPvgd7q/iZPICFjW4o57Q==",
++      "peerDependencies": {
++        "redux": "^4"
++      }
++    },
+     "node_modules/reflect.getprototypeof": {
+       "version": "1.0.4",
+       "resolved": "https://registry.npmjs.org/reflect.getprototypeof/-/reflect.getprototypeof-1.0.4.tgz",
+@@ -16031,6 +16700,11 @@
+         "postcss": "^8.2.15"
+       }
+     },
++    "node_modules/stylis": {
++      "version": "4.2.0",
++      "resolved": "https://registry.npmjs.org/stylis/-/stylis-4.2.0.tgz",
++      "integrity": "sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw=="
++    },
+     "node_modules/sucrase": {
+       "version": "3.34.0",
+       "resolved": "https://registry.npmjs.org/sucrase/-/sucrase-3.34.0.tgz",
+@@ -16814,6 +17488,14 @@
+         "requires-port": "^1.0.0"
+       }
+     },
++    "node_modules/use-sync-external-store": {
++      "version": "1.2.0",
++      "resolved": "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz",
++      "integrity": "sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==",
++      "peerDependencies": {
++        "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
++      }
++    },
+     "node_modules/util-deprecate": {
+       "version": "1.0.2",
+       "resolved": "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz",
+Index: client/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/package.json b/client/package.json
+--- a/client/package.json	(revision fd80a4d8de4bfb7f91d4999459d3c7064da9955e)
++++ b/client/package.json	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -3,12 +3,23 @@
+   "version": "0.1.0",
+   "private": true,
+   "dependencies": {
++    "@emotion/react": "^11.11.1",
++    "@emotion/styled": "^11.11.0",
++    "@fontsource/roboto": "^5.0.8",
++    "@mui/material": "^5.14.14",
++    "@react-buddy/ide-toolbox": "^2.4.0",
++    "@react-buddy/palette-mui": "^5.0.1",
++    "@redux-devtools/extension": "^3.2.5",
+     "@testing-library/jest-dom": "^5.17.0",
+     "@testing-library/react": "^13.4.0",
+     "@testing-library/user-event": "^13.5.0",
++    "axios": "^1.5.1",
+     "react": "^18.2.0",
+     "react-dom": "^18.2.0",
++    "react-redux": "^8.1.3",
+     "react-scripts": "5.0.1",
++    "redux": "^4.2.1",
++    "redux-thunk": "^2.4.2",
+     "web-vitals": "^2.1.4"
+   },
+   "scripts": {
+Index: client/public/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/public/index.html b/client/public/index.html
+--- a/client/public/index.html	(revision fd80a4d8de4bfb7f91d4999459d3c7064da9955e)
++++ b/client/public/index.html	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -24,6 +24,8 @@
+       work correctly both with client-side routing and a non-root public URL.
+       Learn how to configure a non-root public URL by running `npm run build`.
+     -->
++    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
++
+     <title>React App</title>
+   </head>
+   <body>
+Index: client/src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/App.js b/client/src/App.js
+--- a/client/src/App.js	(revision fd80a4d8de4bfb7f91d4999459d3c7064da9955e)
++++ b/client/src/App.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -1,24 +1,9 @@
+-import logo from './logo.svg';
+ import './App.css';
++import TodoWrapper from "./components/todo-wrapper,component";
+ 
+ function App() {
+-  return (
+-    <div className="App">
+-      <header className="App-header">
+-        <img src={logo} className="App-logo" alt="logo" />
+-        <p>
+-          Edit <code>src/App.js</code> and save to reload.
+-        </p>
+-        <a
+-          className="App-link"
+-          href="https://reactjs.org"
+-          target="_blank"
+-          rel="noopener noreferrer"
+-        >
+-          Learn React
+-        </a>
+-      </header>
+-    </div>
++    return (
++    <TodoWrapper/>
+   );
+ }
+ 
+Index: client/src/actions/todos.actions.js
+===================================================================
+diff --git a/client/src/actions/todos.actions.js b/client/src/actions/todos.actions.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/actions/todos.actions.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,36 @@
++import * as api from '../api';
++import { ADD, DELETE, GET_ALL, UPDATE } from "../constants/todo-actions";
++
++// Action Creators
++
++export function getAllTodos() {
++    return function(dispatch) {
++        return api.getAllTodos().then(({ data }) => {
++            dispatch({ type: GET_ALL, payload: data });
++        });
++    };
++}
++
++export function addTodo(todo) {
++    return function(dispatch) {
++        return api.addTodo(todo).then(({ data }) => {
++            dispatch({ type: ADD, payload: data });
++        });
++    };
++}
++
++export function updateTodo(todo) {
++    return function(dispatch) {
++        return api.updateTodo(todo).then(({ data }) => {
++            dispatch({ type: UPDATE, payload: data });
++        });
++    };
++}
++
++export function deleteTodo(id) {
++    return function(dispatch) {
++        return api.deleteTodo(id).then((id) => {
++            dispatch({ type: DELETE, payload: id });
++        });
++    };
++}
+\ No newline at end of file
+Index: client/src/api/index.js
+===================================================================
+diff --git a/client/src/api/index.js b/client/src/api/index.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/api/index.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,11 @@
++import axios from "axios";
++
++const url = 'http://localhost:5000';
++
++export const getAllTodos = async () => axios.get(`${url}/todos`);
++export const addTodo = async (todo) => axios.post(`${url}/todos`, todo);
++export const updateTodo = async (todo) => {
++    console.log(todo)
++    return axios.put(`${url}/todo/${todo._id}`, todo)
++};
++export const deleteTodo = async (id) => axios.delete(`${url}/todo/${id}`);
+Index: client/src/components/todo-card.component.js
+===================================================================
+diff --git a/client/src/components/todo-card.component.js b/client/src/components/todo-card.component.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/components/todo-card.component.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,37 @@
++import {Button, Card, CardActions, CardContent, CardHeader, Container, TextField, Typography} from "@mui/material";
++import CheckIcon from '@mui/icons-material/Check';
++import {deleteTodo, updateTodo} from "../actions/todos.actions";
++import {useDispatch} from "react-redux";
++
++function TodoCard({ todo, setCurrentId }) {
++    const dispatch = useDispatch();
++
++    return (
++        <Card className="m-2 " sx={{ width: 266 }}>
++            <CardHeader
++                avatar={(todo.completed ? (
++                    <CheckIcon color="success"></CheckIcon>
++                ) : null)}
++                title={todo.title}
++                titleTypographyProps={{ fontSize: '24px' }}
++                subheader={new Date(todo.createdAt).toLocaleString()}
++            />
++            <CardContent>
++                <Typography variant="body2">
++                    {todo.description}
++                </Typography>
++            </CardContent>
++            <CardActions  className="my-4">
++                {
++                    todo.completed
++                        ? (<Button variant="contained" color="success" disabled>Completed</Button>)
++                        : (<Button variant="contained" color="success" onClick={() => dispatch(updateTodo({ ...todo, completed: true }))}>Done</Button>)
++                }
++                <Button variant="contained" onClick={() => setCurrentId(todo._id)}>Edit</Button>
++                <Button onClick={() => dispatch(deleteTodo(todo._id))} variant="contained" color="error">Delete</Button>
++            </CardActions>
++        </Card>
++    );
++}
++
++export default TodoCard;
+Index: client/src/components/todo-form.component.js
+===================================================================
+diff --git a/client/src/components/todo-form.component.js b/client/src/components/todo-form.component.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/components/todo-form.component.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,69 @@
++import {Button, Container, TextField, Typography} from "@mui/material";
++import { useDispatch, useSelector } from "react-redux";
++import {useEffect, useState} from "react";
++import {addTodo, updateTodo} from "../actions/todos.actions";
++
++
++function TodoForm({ currentId, setCurrentId }) {
++    const dispatch = useDispatch();
++    const todo = useSelector(state => currentId ? state.todos.find(todo => todo._id === currentId) : null);
++    const [todoData, setTodoData] = useState({
++        description: '', title: '',
++    });
++
++    const handleAdd = (e) => {
++        e?.preventDefault();
++
++        if (currentId) {
++            dispatch(updateTodo({ _id: currentId, description: todoData.description, title: todoData.title, completed: false }))
++        } else {
++            dispatch(addTodo(todoData))
++        }
++        clear();
++    }
++
++    const clear = () => {
++        setCurrentId(null);
++        setTodoData({
++            description: '', title: '',
++        });
++    }
++
++    useEffect(() => {
++        if (todo) {
++            setTodoData(todo);
++        }
++    }, [todo]);
++    return (
++        <Container maxWidth="md" className="border">
++            <form autoComplete="off" noValidate className="d-flex flex-column" onSubmit={handleAdd}>
++                <TextField
++                    id="outlined-basic"
++                    label="Add here todo title"
++                    variant="outlined"
++                    className="my-4"
++                    value={todoData.title}
++                    onChange={(e) => setTodoData({ ...todoData, title: e.target.value })}
++                />
++                <TextField
++                    id="outlined-basic"
++                    label="Add here todo description"
++                    variant="outlined"
++                    rows={3} multiline
++                    value={todoData.description}
++                    onChange={(e) => setTodoData({ ...todoData, description: e.target.value })}
++                />
++                <div className="d-flex">
++                    {
++                        currentId
++                            ? (<Button variant="contained" className="w-100 m-3" type="submit">Update Todo</Button>)
++                            : (<Button variant="contained" className="w-100 m-3" color="success" type="submit">Add Todo</Button>)
++                    }
++                    <Button variant="contained" className="w-50 m-3" color="error" onClick={clear}>Clear</Button>
++                </div>
++            </form>
++        </Container>
++    );
++}
++
++export default TodoForm;
+Index: client/src/components/todo-list.component.js
+===================================================================
+diff --git a/client/src/components/todo-list.component.js b/client/src/components/todo-list.component.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/components/todo-list.component.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,17 @@
++import { Button, Container, TextField, Typography } from "@mui/material";
++import { useSelector } from "react-redux";
++import TodoCard from "./todo-card.component";
++
++function TodoList({ setCurrentId }) {
++    const todos = useSelector((state) => state.todos)
++
++    return (
++        <Container maxWidth="md" className="border d-flex flex-wrap">
++            { todos.map((todo) =>
++                (<TodoCard key={todo._id || 'temp'} todo={todo} setCurrentId={setCurrentId}></TodoCard>)
++            )}
++        </Container>
++    );
++}
++
++export default TodoList;
+Index: client/src/components/todo-wrapper,component.js
+===================================================================
+diff --git a/client/src/components/todo-wrapper,component.js b/client/src/components/todo-wrapper,component.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/components/todo-wrapper,component.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,38 @@
++import { getAllTodos, updateTodo, deleteTodo, addTodo } from "../actions/todos.actions";
++import {Typography} from "@mui/material";
++import {connect, useDispatch} from 'react-redux';
++
++import TodoForm from "./todo-form.component";
++import TodoList from "./todo-list.component";
++import {useEffect, useState} from "react";
++
++function TodoWrapper() {
++    const dispatch = useDispatch();
++
++    const [currentId, setCurrentId] = useState(null);
++
++    useEffect(() => {
++        dispatch(getAllTodos());
++    }, [currentId, dispatch]);
++
++    return (
++        <div>
++            <Typography variant="h3" gutterBottom className="d-flex justify-content-center mt-3">
++                TODO APP
++            </Typography>
++            <TodoForm currentId={currentId} setCurrentId={setCurrentId}></TodoForm>
++            <TodoList setCurrentId={setCurrentId}></TodoList>
++        </div>
++    );
++}
++
++const mapStateToProps = (state) => ({
++    count: state.todos,
++});
++
++const mapDispatchToProps = {
++    getAllTodos, updateTodo, deleteTodo, addTodo,
++};
++
++export default connect(mapStateToProps, mapDispatchToProps)(TodoWrapper);
++
+Index: client/src/constants/todo-actions.js
+===================================================================
+diff --git a/client/src/constants/todo-actions.js b/client/src/constants/todo-actions.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/constants/todo-actions.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,4 @@
++export const ADD = 'ADD';
++export const UPDATE = 'UPDATE';
++export const DELETE = 'DELETE';
++export const GET_ALL = 'GET_ALL';
+\ No newline at end of file
+Index: client/src/dev/README.md
+===================================================================
+diff --git a/client/src/dev/README.md b/client/src/dev/README.md
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/dev/README.md	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,70 @@
++This directory contains utility files which enable some visual features of the
++[React Buddy](https://plugins.jetbrains.com/plugin/17467-react-buddy/) plugin.
++Files in the directory should be committed to source control.
++
++React Buddy palettes describe reusable components and building blocks. `React Palette` tool window becomes available
++when an editor with React components is active. You can drag and drop items from the tool window to the code editor or
++JSX Outline. Alternatively, you can insert components from the palette using code generation
++action (`alt+insert` / `⌘ N`).
++
++Add components to the palette using `Add to React Palette` intention or via palette editor (look for the corresponding
++link in `palette.tsx`). There are some ready-to-use palettes for popular React libraries which are published as npm
++packages and can be added as a dependency:
++
++```jsx
++import AntdPalette from "@react-buddy/palette-antd";
++import ReactIntlPalette from "@react-buddy/palette-react-intl";
++
++export const PaletteTree = () => (
++  <Palette>
++    <AntdPalette/> 
++    <ReactIntlPalette/>
++    <Category name="App templates">
++      <Component name="Card">
++        <Variant name="Loading">
++          <Card title="Card title">
++            <Skeleton loading={true} avatar active>
++                Card content
++            </Skeleton>
++          </Card>
++        </Variant>
++      </Component>
++      <Component name="Form">
++        <Variant proto={FormTemplate}/>
++      </Component>
++    </Category>
++  </Palette>
++)
++```
++
++React Buddy explicitly registers any previewed component in the `previews.tsx` file so that you can specify required
++props.
++
++```jsx
++<ComponentPreview path="/Page">
++    <Page title={'Hello'}/>
++</ComponentPreview>
++```
++
++You can add some global initialization logic for the preview mode in `useInitital.ts`,
++e.g. implicitly obtain user session:
++
++```typescript
++export const useInitial: () => InitialHookStatus = () => {
++    const [loading, setLoading] = useState<boolean>(false);
++    const [error, setError] = useState<boolean>(false);
++
++    useEffect(() => {
++        setLoading(true);
++        async function login() {
++            const response = await loginRequest(DEV_LOGIN, DEV_PASSWORD);
++            if (response?.status !== 200) {
++                setError(true);
++            }
++            setLoading(false);
++        }
++        login();
++    }, []);
++    return { loading, error };
++};
++```
+\ No newline at end of file
+Index: client/src/dev/index.js
+===================================================================
+diff --git a/client/src/dev/index.js b/client/src/dev/index.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/dev/index.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,9 @@
++import React from "react"
++import {useInitial} from "./useInitial"
++
++const ComponentPreviews = React.lazy(() => import("./previews"))
++
++export {
++    ComponentPreviews,
++    useInitial
++}
+\ No newline at end of file
+Index: client/src/dev/palette.jsx
+===================================================================
+diff --git a/client/src/dev/palette.jsx b/client/src/dev/palette.jsx
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/dev/palette.jsx	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,28 @@
++import React from "react"
++import {Fragment} from "react"
++import {
++    Category,
++    Component,
++    Variant,
++    Palette,
++} from "@react-buddy/ide-toolbox"
++import MUIPalette from "@react-buddy/palette-mui";
++
++export const PaletteTree = () => (
++    <Palette>
++        <Category name="App">
++            <Component name="Loader">
++                <Variant>
++                    <ExampleLoaderComponent/>
++                </Variant>
++            </Component>
++        </Category>
++        <MUIPalette/>
++    </Palette>
++)
++
++export function ExampleLoaderComponent() {
++    return (
++        <Fragment>Loading...</Fragment>
++    )
++}
+\ No newline at end of file
+Index: client/src/dev/previews.jsx
+===================================================================
+diff --git a/client/src/dev/previews.jsx b/client/src/dev/previews.jsx
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/dev/previews.jsx	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,12 @@
++import React from 'react'
++import {Previews} from '@react-buddy/ide-toolbox'
++import {PaletteTree} from './palette'
++
++const ComponentPreviews = () => {
++    return (
++        <Previews palette={<PaletteTree/>}>
++        </Previews>
++    )
++}
++
++export default ComponentPreviews
+\ No newline at end of file
+Index: client/src/dev/useInitial.js
+===================================================================
+diff --git a/client/src/dev/useInitial.js b/client/src/dev/useInitial.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/dev/useInitial.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,15 @@
++import {useState} from 'react'
++
++export const useInitial = () => {
++    const [status, setStatus] = useState({
++        loading: false,
++        error: false
++    })
++    /*
++      Implement hook functionality here.
++      If you need to execute async operation, set loading to true and when it's over, set loading to false.
++      If you caught some errors, set error status to true.
++      Initial hook is considered to be successfully completed if it will return {loading: false, error: false}.
++    */
++    return status
++}
+Index: client/src/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/index.js b/client/src/index.js
+--- a/client/src/index.js	(revision fd80a4d8de4bfb7f91d4999459d3c7064da9955e)
++++ b/client/src/index.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -3,12 +3,22 @@
+ import './index.css';
+ import App from './App';
+ import reportWebVitals from './reportWebVitals';
++import {Provider} from "react-redux";
++import {createStore, applyMiddleware, compose} from "redux";
++import reducers from "./reducers";
++import thunk from 'redux-thunk';
++import {DevSupport} from "@react-buddy/ide-toolbox";
++import {ComponentPreviews, useInitial} from "./dev";
++import store from "./reducers/store";
+ 
+ const root = ReactDOM.createRoot(document.getElementById('root'));
++
+ root.render(
+-  <React.StrictMode>
+-    <App />
+-  </React.StrictMode>
++    <React.StrictMode>
++        <Provider store={store}>
++            <App />
++        </Provider>
++    </React.StrictMode>
+ );
+ 
+ // If you want to start measuring performance in your app, pass a function
+Index: client/src/reducers/index.js
+===================================================================
+diff --git a/client/src/reducers/index.js b/client/src/reducers/index.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/reducers/index.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,7 @@
++import { combineReducers } from "redux";
++
++import todos from './todos.reducer'
++
++export default combineReducers({
++    todos,
++});
+\ No newline at end of file
+Index: client/src/reducers/store.js
+===================================================================
+diff --git a/client/src/reducers/store.js b/client/src/reducers/store.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/reducers/store.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,9 @@
++import { composeWithDevTools } from "@redux-devtools/extension";
++import { applyMiddleware, createStore } from "redux";
++import rootReducer from "./index";
++import todoMiddleware from "./todos-middleware";
++const thunk = require("redux-thunk").default;
++
++const store = createStore(rootReducer,  applyMiddleware(todoMiddleware));
++
++export default store;
+\ No newline at end of file
+Index: client/src/reducers/todos-middleware.js
+===================================================================
+diff --git a/client/src/reducers/todos-middleware.js b/client/src/reducers/todos-middleware.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/reducers/todos-middleware.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,16 @@
++// customMiddleware.js
++import {GET_ALL} from "../constants/todo-actions";
++
++const initialState = [];
++
++const todoMiddleware = store => next => action => {
++    // Dispatch the 'GET_ALL' action if any action other than 'GET_ALL' is dispatched
++    if (action.type !== GET_ALL) {
++        store.dispatch({ type: GET_ALL });
++    }
++
++    // Call the next middleware or the reducer
++    return next(action);
++};
++
++export default todoMiddleware;
+\ No newline at end of file
+Index: client/src/reducers/todos.reducer.js
+===================================================================
+diff --git a/client/src/reducers/todos.reducer.js b/client/src/reducers/todos.reducer.js
+new file mode 100644
+--- /dev/null	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
++++ b/client/src/reducers/todos.reducer.js	(revision 57e51a298f6b1e347f905e79009eb3378471ca51)
+@@ -0,0 +1,16 @@
++import { ADD, DELETE, GET_ALL, UPDATE } from "../constants/todo-actions";
++
++export default (todos = [], action) => {
++    switch (action.type) {
++        case GET_ALL:
++            return action.payload;
++        case ADD:
++            return [...todos, action.payload];
++        case DELETE:
++            return todos.filter(post => post._id !== action.payload._id);
++        case UPDATE:
++            return todos.map(post => post._id === action.payload._id ? action.payload : post);
++        default:
++            return todos;
++    }
++}
+\ No newline at end of file
+Index: server/.env
+===================================================================
+diff --git a/server/.env b/server/.env
+new file mode 100644
+--- /dev/null	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
++++ b/server/.env	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
+@@ -0,0 +1,8 @@
++# APP ENVIRONMENT VARIABLES
++APP_NAME=TODO
++APP_PORT=5000
++APP_BASE_URL =
++APP_API_PREFIX =
++
++# DB ENVIRONMENT VARIABLES
++MONGO_URI=mongodb+srv://popoje:110697@cluster.cp6pamh.mongodb.net/?retryWrites=true&w=majority
+\ No newline at end of file
+Index: server/controllers/todos.controller.js
+===================================================================
+diff --git a/server/controllers/todos.controller.js b/server/controllers/todos.controller.js
+new file mode 100644
+--- /dev/null	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
++++ b/server/controllers/todos.controller.js	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
+@@ -0,0 +1,54 @@
++const Todo = require("../models/todos.model");
++
++const todos = [];
++
++exports.addTodo = async (req, res) => {
++    const newTodo = new Todo(req.body);
++    await newTodo.save()
++        .then(() => res.status(204).send())
++        .catch((err) => res.status(500).json({ error: err.message }));
++};
++
++exports.getAllTodos = async (req, res) => {
++    try {
++        const todos = await Todo.find({}).sort({ createdAt: -1 });
++
++        try {
++            res.status(200).json(todos);
++        } catch (error) {
++            res.status(500).json({ error: error.message });
++        }
++    } catch (error) {
++        res.status(500).json({ error: error.message });
++    }
++};
++
++exports.editTodo = async (req, res) => {
++    try {
++        const { id: todoId } = req.params;
++        const todo = await Todo.findByIdAndUpdate(todoId, req.body, { new: true, runValidators: true });
++
++        if (!todo) {
++            return res.status(404).json({ msg: `No todo with id: ${todoId}` });
++        } else {
++            res.status(204).send();
++        }
++    } catch (error) {
++        res.status(500).json({ error: error.message });
++    }
++};
++
++exports.deleteTodo = async (req, res) => {
++    try {
++        const { id: todoId } = req.params;
++        const todo = await Todo.findByIdAndDelete(todoId);
++
++        if (!todo) {
++            return res.status(404).json({ msg: `No todo with id: ${todoId}` });
++        } else {
++            res.status(204).send();
++        }
++    } catch (error) {
++        res.status(500).json({ error: error.message });
++    }
++};
+\ No newline at end of file
+Index: server/db/connect.js
+===================================================================
+diff --git a/server/db/connect.js b/server/db/connect.js
+new file mode 100644
+--- /dev/null	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
++++ b/server/db/connect.js	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
+@@ -0,0 +1,22 @@
++// external modules import
++const mongoose = require("mongoose");
++
++const connectDatabase = async () => {
++    try {
++        await mongoose
++            .connect(process.env.MONGO_URI, {
++                useNewUrlParser: true,
++                useUnifiedTopology: true,
++            })
++            .then(() => {
++                console.log("Connected to MongoDB database successfully.");
++            })
++            .catch((error) => {
++                console.log("Error connecting to MongoDB: ", error.message);
++            });
++    } catch (error) {
++        console.log("Database connection error: ", error.message);
++    }
++};
++
++module.exports = connectDatabase;
+\ No newline at end of file
+Index: server/index.js
+===================================================================
+diff --git a/server/index.js b/server/index.js
+new file mode 100644
+--- /dev/null	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
++++ b/server/index.js	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
+@@ -0,0 +1,21 @@
++const express = require("express");
++const bodyParser = require("body-parser");
++const mongoose = require("mongoose");
++const dotenv = require('dotenv');
++const cors = require('cors');
++
++dotenv.config();
++
++
++const app = express();
++app.use(bodyParser.json());
++app.use(cors());
++
++const connectDatabase = require("./db/connect");
++connectDatabase();
++
++const todos = require("./routes/todos.route");
++
++app.use('/', todos);
++
++app.listen(process.env.APP_PORT, () => console.log(`Server running on port: ${process.env.APP_PORT}`));
+\ No newline at end of file
+Index: server/models/todos.model.js
+===================================================================
+diff --git a/server/models/todos.model.js b/server/models/todos.model.js
+new file mode 100644
+--- /dev/null	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
++++ b/server/models/todos.model.js	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
+@@ -0,0 +1,25 @@
++const mongoose = require("mongoose");
++
++const todoSchema = new mongoose.Schema({
++    id: mongoose.Schema.Types.ObjectId, // Automatically generated
++    title: {
++        type: String,
++        required: [true, "Must be provided todo title"],
++        maxlength: [20, "name must be less than 20 characters"],
++        trim: true,
++    },
++    description: {
++        type: String,
++        required: [true, "Must be provided todo description"],
++    },
++    completed: {
++        type: Boolean,
++        default: false,
++    },
++    createdAt: {
++        type: Date,
++        default: Date.now,
++    },
++});
++
++module.exports = mongoose.model("Todo", todoSchema);
+\ No newline at end of file
+Index: server/routes/register.route.js
+===================================================================
+diff --git a/server/routes/register.route.js b/server/routes/register.route.js
+new file mode 100644
+--- /dev/null	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
++++ b/server/routes/register.route.js	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
+@@ -0,0 +1,1 @@
++app.post('register')
+\ No newline at end of file
+Index: server/routes/todos.route.js
+===================================================================
+diff --git a/server/routes/todos.route.js b/server/routes/todos.route.js
+new file mode 100644
+--- /dev/null	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
++++ b/server/routes/todos.route.js	(revision 7bed352869084ece2a6e6d52da9f358084cf0407)
+@@ -0,0 +1,9 @@
++const router = require("express").Router();
++const { getAllTodos, editTodo, addTodo, deleteTodo } = require("../controllers/todos.controller");
++
++router.get("/todos", getAllTodos);
++router.post("/todos", addTodo);
++router.put("/todo/:id", editTodo);
++router.delete("/todo/:id", deleteTodo);
++
++module.exports = router;
+\ No newline at end of file
