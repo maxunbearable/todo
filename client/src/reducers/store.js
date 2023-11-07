@@ -4,6 +4,6 @@ import rootReducer from "./index";
 import todoMiddleware from "./todos-middleware";
 const thunk = require("redux-thunk").default;
 
-const store = createStore(rootReducer,  applyMiddleware(todoMiddleware));
+const store = createStore(rootReducer,  composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;
